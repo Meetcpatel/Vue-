@@ -12,7 +12,7 @@
   <div id="app1">
     Firstname: {{firstname}}
     Lastname: {{lastname}}
-    {{function()}}
+    {{mydetails()}}
   </div>
 
   <script>
@@ -32,7 +32,7 @@
       lastname: 'Desai',
       phone:'9879666844'
     },
-  method:{
+  methods:{
     mydetails: function(){
     return 'I am'+this.firstname+' '+this.lastname+'\n'+'My Mobile Number is'+' '+this.phone+'.';
   }
