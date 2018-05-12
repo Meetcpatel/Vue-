@@ -10,6 +10,11 @@
     {{ message1 }}
     {{ message2 }}
   </div>
+  <div id="app1">
+    Firstname: {{firstname}}
+    Lastname: {{lastname}}
+    {{mydetails()}}
+  </div>
 
   <script>
     var app = new Vue({
@@ -21,5 +26,21 @@
       }
     })
   </script>
+  <script>
+  var app1 = new Vue({
+    el:'#app1',
+    data:{
+      firstname: 'Purvaj',
+      lastname: 'Desai',
+      phone:'9879666844'
+    },
+  methods:{
+    mydetails: function(){
+    return 'I am'+this.firstname+' '+this.lastname+'\n'+'My Mobile Number is'+' '+this.phone+'.';
+  }
+  }
+  })
+  </script>
+
 </body>
 </html>
