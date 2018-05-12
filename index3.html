@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>
+        object
+    </title>
+
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>   
+<body>
+<script>
+
+    var obj1={FNAME:"Meet PAtel",LANEM:"Patel"}
+
+    var detail=new Vue({
+
+        data:obj1
+    });
+
+
+
+
+    console.log(vm.FNAME);
+    console.log(detail.$data);
+    console.log(detail.data.FNAME);
+
+    var Component=Vue.extend({
+
+        data:function(){
+
+            return obj1;
+        }
+
+    });
+    var Componentins=new Comment();
+    console.log(Componentins.LANEM);
+    console.log(Componentins.$data);
+
+</script>
+
+
+</body>
+
+
+
+
+
+</html>
