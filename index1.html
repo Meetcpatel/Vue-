@@ -8,16 +8,27 @@
     <body>
         <div id="intro" style="text-align:center">
             <h1>My first js </h1>
-            <h1>{{ message }}
-            </h1>
+            <h1>{{ message }}</h1>
+            <h1>First Name : {{ FNAME }}</h1>
+            <h1>Last Name:{{ LNAME}}</h1>
+            <h1>My Detail is here : {{ mydetail() }}</h1>
             </div>
 
             <script>
             var intro = new Vue({
                 el:'#intro',
                 data:{
-                    message:'meet new '                   
+                    message:'meet new ',
+                    FNAME:'Meet',       
+                    LNAME:'Patel'         
+                },
+                methods: {
+                    mydetail:function(){
+                        return "I am "+this.FNAME+" "+this.LNAME;
+
+                    }
                 }
+
 
             })
             </script>
