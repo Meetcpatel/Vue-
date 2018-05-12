@@ -5,4 +5,5 @@ https://meetvue.azurewebsites.net
 
 and 
 
-https://meetvue.azurewebsites.net/index1.html
+Methos in Vue  : https://meetvue.azurewebsites.net/index1.html
+
