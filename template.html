@@ -7,9 +7,10 @@
     </head>
     <body>
         <div id="tem">
+            <h1>Templae </h1>
             <h1>First Name:{{FNAME}}</h1>
             <h2>Last {{LNAME}}</h2>
-            <div>{{htmlcontent}}</div>
+            <div v-html="htmlcontent"></div>
         </div>
 <script>
         var nm=new Vue({
@@ -17,7 +18,7 @@
             data:{
                 FNAME:"Meet",
                 LNAME:"Patel",
-                htmlcontent:"<div><h1>Hello</h1></div>"
+                htmlcontent:"<div><h1>Hello </h1></div>"
         
             }
         })
