@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <div id="app">
+            <input type="text" v-model="value"/>
+            <button v-on:click="reverseMessage">Reverse</button>
+            <p>{{value}}</p>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+        var container=new Vue({
+            el:"#app",
+            data:{
+                value:''
+            },
+            methods:{
+                reverseMessage:function(){
+                    
+                    return this.value=this.value.split('').reverse().join('')
+                    
+                }
+            }
+
+        })
+        </script>
+    </body>
+</html>
