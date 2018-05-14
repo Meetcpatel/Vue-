@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<div v-for="udata in userData">
+Id : {{ udata.id }} Name: {{ udata.name }}
+</div>
+</div>    
+<script>
+var dataURL = 'http://tutorialsplane.com/runtest/json/getUsers.php';
+var App = new Vue({
+  el: '#app',
+  data: {
+    userData: [] // initialize empty array
+  },
+  mounted() { // when the Vue app is booted up, this is run automatically.
+    var self = this // create a closure to access component in the callback below
+    $.getJSON(dataURL, function(data) {
+      self.userData = data.users;
+    });
+  }
+})       
+</script>  
+         
+</body>
+</html> 
