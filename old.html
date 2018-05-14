@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>
+            old or young
+        </title>
+        <script type = "text/javascript" src = "https://unpkg.com/vue"></script>
+    
+    </head>
+<body>
+
+<div id="app">
+    
+    <h1><input v-model="age" placeholder="age"></h1>
+    <h1>{{ age>60?'old':'Young' }}</h1>
+<h1><span style="font-size:25px;"> You are : {{age}}</span></h1>
+</div>
+
+<script type = "text/javascript" src="js/old.js"></script>
+
+</body>
+</html>
