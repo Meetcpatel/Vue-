@@ -1,8 +1,29 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="w3-display-middle">
-  <div class="w3-container">
-    <input type="button" class="w3-button w3-black" value="Project 1">
-    <button class="w3-button w3-black">Project 2</button>
-    <a href="#" class="w3-button w3-black">Project 3</a>
-  </div>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<div v-for="udata in userData">
+Id : {{ udata.id }} Name: {{ udata.name }}
 </div>
+</div>    
+<script>
+var dataURL = 'https://botmeetstorage.blob.core.windows.net/resume/data.JSON';
+var App = new Vue({
+  el: '#app',
+  data: {
+    userData: [] // initialize empty array
+  },
+  mounted() { // when the Vue app is booted up, this is run automatically.
+    var self = this // create a closure to access component in the callback below
+    $.getJSON(dataURL, function(data) {
+      self.userData = data.users;
+    });
+  }
+})       
+</script>  
+         
+</body>
+</html>

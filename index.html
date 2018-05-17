@@ -3,62 +3,31 @@
 <head>
   <title>My first Vue app</title>
   <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <div id="app">
-    {{ message }}
-    {{ message1 }}
-  </div>
   <div id="app1">
-    Firstname: {{firstname}}
-    Lastname: {{lastname}}
-    {{mydetails()}}
-    <div>{{htmlcontent}}</div>
-    <div v-html="htmlcontent"></div>
-    <img v-bind:src="imgsrc" width="300" height="250"/>
+  <p>{{status}}</p>
   </div>
-  <div id = "databinding">
-  <button v-on:click = "showdata" v-bind:style = "styleobj">Click Me</button>
-  <span style = "font-size:25px;"><b>{{show}}</b></span>
-  <h1 v-if = "show">This is h1 tag</h1>
-  <h2>This is h2 tag</h2>
-</div>
-  <script src="vue_js.js"></script>
   <script>
-  var app1 = new Vue({
+  var vm = new Vue({
     el:'#app1',
     data:{
-      firstname: 'Purvaj',
-      lastname: 'Desai',
-      phone:'9879666844',
-      htmlcontent: "<div><h1>VueJS htmlcontent Example</h1></div>",
-      imgsrc:"IMG-20160219-WA0027.jpg"
+      status:''
+    },
+    created: function(){
+      this.loadQuote();
     },
   methods:{
-    mydetails: function(){
-    return 'I am'+this.firstname+' '+this.lastname+'\n'+'My Mobile Number is'+' '+this.phone+'.';
-  }
+    loadQuote: function(){
+    this.status='Loading.......';
+    var vm=this;
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.status= response))
+    }
   }
   })
-  </script>
-       <script type = "text/javascript">
-          var vm = new Vue({
-             el: '#databinding',
-             data: {
-                show: true,
-                styleobj: {
-                   backgroundColor: '#2196F3!important',
-                   cursor: 'pointer',
-                   padding: '8px 16px',
-                   verticalAlign: 'middle',
-                }
-             },
-             methods : {
-                showdata : function() {
-                   this.show = !this.show;
-                }
-             },
-          });
        </script>
     </body>
 </html>
